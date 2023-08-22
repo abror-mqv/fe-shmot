@@ -156,13 +156,14 @@ const StyledCard = styled.div`
 `
 
 function Content({ day, disabled, data }) {
+    // alert(JSON.stringify(data.image_0));
     return (
         <div className="crdd">
             <motion.img
                 // transition={{ delay: 0.3 }}
                 // initial={{ opacity: 0, top: "3rem" }}
                 // animate={{ opacity: 1, top: "3rem" }}
-                className='image' src={`${BACK_URL}/media/` + data.image} alt=""
+                className='image' src={`${BACK_URL}/media/` + data.image_0} alt=""
             />
             <motion.h2
                 className="title"
