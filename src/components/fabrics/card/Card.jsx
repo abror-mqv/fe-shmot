@@ -243,7 +243,7 @@ function Card({ onCollapse, onExpand, disabled, data, day }) {
                             <ExpandedCard onCollapse={collapseDate} day={day}>
                                 <div className='crd'>
 
-                                    <img className='image' src={`${BACK_URL}/media/` + image} alt="" />
+                                    <img className='image' src={`${BACK_URL}/media/` + data.image_0} alt="" />
 
                                     <h3 className='title'>{title}</h3>
                                     <p className='price'>{price} <span>СОМ</span></p>
