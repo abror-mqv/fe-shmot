@@ -1,38 +1,188 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+  font-family: 'Amatic SC', cursive;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: var(--tg-theme-secondary-bg-color);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
+
+
+
+.hero {
+  width: 90%;
+  margin-left: 5%;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  row-gap: 10vw;
+  flex-wrap: wrap;
+  /* z-index: -1; */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+
+
+
+.handle {
+  /* width: 80px; */
+  /* height: 80px; */
+  background-color: white;
+  border-radius: 40px;
+}
+
+.active {
+  border: 1px solid hsl(208, 100%, 47.3%);
+  background: hsl(206, 100%, 50%);
+  width: 120px;
+  height: 120px;
+  border-radius: 8px;
+  transition: width 0.5s ease-out;
+
+}
+
+.toggled {
+  width: 200px;
+}
+
+
+.container {
+  font-family: sans-serif;
+}
+
+.dates {
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 3rem;
+}
+
+/* .card {
+  overflow: hidden;
+  box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  cursor: pointer;
+} */
+
+.secondary {
+  background-color: white;
+  height: 2.5rem;
+  padding: 0.5rem;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  width: 8rem;
+  margin-left: 1rem;
+}
+
+/* .compact {
+  width: 3rem;
+  height: 3rem;
+  padding: 0.5rem;
+  border-radius: 1.5rem;
+} */
+
+/* .expanded .title {
+  font-size: 5em;
   color: white;
+} */
+
+.compact .title {
+  font-size: 1.5em;
 }
 
-.App-link {
-  color: #61dafb;
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 300px;
+  background: #fff;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 300px;
+  background: #fff;
+}
+
+button {
+  outline: none;
+  border: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  cursor: pointer;
+  position: absolute;
+  top: -5px;
+  left: -3px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: 5px 5px 10px #d4d4d4,
+    -5px -5px 10px #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+
+button>svg {
+  margin-top: 8px;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  padding: 25px;
+  position: absolute;
+  top: 100px;
+  width: 230px;
+}
+
+li {
+  list-style: none;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.icon-placeholder {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  flex: 40px 0;
+  margin-right: 20px;
+}
+
+.text-placeholder {
+  border-radius: 5px;
+  width: 200px;
+  height: 20px;
+  flex: 1;
 }
