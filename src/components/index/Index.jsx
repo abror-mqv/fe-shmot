@@ -26,19 +26,58 @@ function Index() {
     const [current, setCurrent] = useState(1)
     const [expandedDay, setCollapsedDay] = useState();
     const days = [25, 26, 27, 28, 29];
+    function Hero() {
+        if (data.product != undefined) {
+            if ((data.products.find(product => product.id == current).children) != undefined) {
+                return (
+                    <>
+                        {
+                            data.products ? data.products.find(product => product.id == current).children?.map(el => {
+
+                                return (
+                                    <Card data={el} key={el.id}
+                                        day={el.id}
+                                        disabled={expandedDay !== el.id && expandedDay !== undefined}
+                                        onExpand={() => setCollapsedDay(el.id)}
+                                        onCollapse={() => setCollapsedDay()} />
+                                )
+                            }) : 'Empty as my heart '
+                        }
+                        {
+                            data.products ? data.products.find(product => product.id == current).children?.map(el => {
+
+                                return (
+                                    <Card data={el} key={el.id}
+                                        day={el.id}
+                                        disabled={expandedDay !== el.id && expandedDay !== undefined}
+                                        onExpand={() => setCollapsedDay(el.id)}
+                                        onCollapse={() => setCollapsedDay()} />
+                                )
+                            }) : 'Empty as my heart'
+                        }</>
+                )
+            } else {
+                return ("Empty as my heart")
+            }
+        } else {
+            return ("Preparing")
+        }
+
+
+    }
     return (
         <div>
             <Header />
-            <Burger/>
+            <Burger />
             <Nav>
                 {
                     data.products?.map(el => { return (<h4 key={el.id} onClick={e => { setCurrent(el.id); console.log(current) }}>{el.subsubcat_name}</h4>) })
                 }
             </Nav>
             <div className="hero">
-                {
-                    data.products ? data.products.find(product => product.id == current).children?.map(el => {
-
+                {/* <Hero /> */}{
+                    (data.products)? data.products?.find(product => product.id == current)?.children?.map(el => {
+                        console.log(44444444444444+ data.product)
                         return (
                             <Card data={el} key={el.id}
                                 day={el.id}
@@ -46,24 +85,50 @@ function Index() {
                                 onExpand={() => setCollapsedDay(el.id)}
                                 onCollapse={() => setCollapsedDay()} />
                         )
-                    }) : 'preparing'
-                }
-                {
-                    data.products ? data.products.find(product => product.id == current).children?.map(el => {
-
-                        return (
-                            <Card data={el} key={el.id}
-                                day={el.id}
-                                disabled={expandedDay !== el.id && expandedDay !== undefined}
-                                onExpand={() => setCollapsedDay(el.id)}
-                                onCollapse={() => setCollapsedDay()} />
-                        )
-                    }) : 'preparing'
-                }
-               
+                    }) : 'preparing' 
+                } 
             </div>
         </div>
     )
 }
 
 export default Index
+
+
+
+
+
+
+
+
+
+
+
+
+
+// <div className="hero">
+//                 {
+//                     data.products ? data.products.find(product => product.id == current).children?.map(el => {
+
+//                         return (
+//                             <Card data={el} key={el.id}
+//                                 day={el.id}
+//                                 disabled={expandedDay !== el.id && expandedDay !== undefined}
+//                                 onExpand={() => setCollapsedDay(el.id)}
+//                                 onCollapse={() => setCollapsedDay()} />
+//                         )
+//                     }) : 'preparing'
+//                 }
+//                 {
+//                     data.products ? data.products.find(product => product.id == current).children?.map(el => {
+
+//                         return (
+//                             <Card data={el} key={el.id}
+//                                 day={el.id}
+//                                 disabled={expandedDay !== el.id && expandedDay !== undefined}
+//                                 onExpand={() => setCollapsedDay(el.id)}
+//                                 onCollapse={() => setCollapsedDay()} />
+//                         )
+//                     }) : 'preparing'
+//                 }
+//             </div>
