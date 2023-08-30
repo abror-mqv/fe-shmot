@@ -11,6 +11,7 @@ const StyledNav = styled.nav`
     width: 90%;
     padding-bottom: 20px;
     z-index: 99999;
+    font-family: 'Amatic SC', cursive;
     h4{
       background-color: #764AF1;      
       display: inline;

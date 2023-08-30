@@ -76,8 +76,8 @@ function Index() {
             </Nav>
             <div className="hero">
                 {/* <Hero /> */}{
-                    (data.products)? data.products?.find(product => product.id == current)?.children?.map(el => {
-                        console.log(44444444444444+ data.product)
+                    (data.products) ? data.products?.find(product => product.id == current)?.children?.map(el => {
+                        console.log(44444444444444 + data.product)
                         return (
                             <Card data={el} key={el.id}
                                 day={el.id}
@@ -85,8 +85,8 @@ function Index() {
                                 onExpand={() => setCollapsedDay(el.id)}
                                 onCollapse={() => setCollapsedDay()} />
                         )
-                    }) : 'preparing' 
-                } 
+                    }) : 'preparing'
+                }
             </div>
         </div>
     )
