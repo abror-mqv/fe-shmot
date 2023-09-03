@@ -68,12 +68,7 @@ function Index() {
                 {
                     data.products?.map(el => { return (<h4 key={el.id} className={current==el.id?'selected':'unselected'} onClick={e => { setCurrent(el.id)}}>{el.subsubcat_name}</h4>) })
                 }
-                 {
-                    data.products?.map(el => { return (<h4 key={el.id} className={current==el.id?'selected':'unselected'} onClick={e => { setCurrent(el.id)}}>{el.subsubcat_name}</h4>) })
-                }
-                 {
-                    data.products?.map(el => { return (<h4 key={el.id} className={current==el.id?'selected':'unselected'} onClick={e => { setCurrent(el.id)}}>{el.subsubcat_name}</h4>) })
-                }
+                
                 
             </Nav>
             <div className="hero">
