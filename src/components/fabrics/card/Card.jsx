@@ -4,15 +4,16 @@ import { motion, Variants } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import { AnimateSharedLayout, AnimatePresence } from "framer-motion";
 import { BACK_URL } from '../../../constants';
+import { Link } from 'react-router-dom';
 
 const StyledCard = styled.div`
     .card-container {
        width: 100%;
-       height: 260px;
+       height: 300px;
        display: flex;
        justify-content: flex-start;
        font-family: 'Oswald', sans-serif;
-       margin-bottom: 30px;
+       margin-bottom: 40px;
        /* box-shadow:  5px 5px 10px #d7d7d7,
              -5px -5px 10px #e9e9e9; */
        .image{
@@ -31,21 +32,21 @@ const StyledCard = styled.div`
            justify-content: flex-start;
 
             .title{
-                font-size: 17px;
+                font-size: 24px;
                 margin-bottom: 20px;
                 font-weight: 900;
             }
             .price{
-                font-size: 15px;
+                font-size: 16px;
                 color: #000000;
                 
             }
             .sizes{
-                font-size: 10px;
+                font-size: 12px;
                 margin-bottom: 20px;
             }
             .description{
-                font-size: 10px;
+                font-size: 12px;
                 color: rgb(27, 27, 27);
                 margin-bottom: 20px;
             }
@@ -70,23 +71,26 @@ function Card({ onCollapse, onExpand, disabled, data, day }) {
     const price = data.price
     const siezes = data.siezes
     const [isOn, setIsOn] = useState(false);
-
+    const id = data.id
     return (
         <div >
             <StyledCard>
                 <div className="card-container">
-                    <img src={BACK_URL + '/media/' + data.image_0} alt="" className='image' />
+                    {/* <Link to={`/product/${id}`}> */}
+                        <img src={BACK_URL + '/media/' + data.image_0} alt="" className='image' onClick={() => { }} />
+                    {/* </Link> */}
+
                     <div className='info'>
                         <p className="title">
                             {title}
                         </p>
 
-                        
+
                         <p className="sizes">
                             размеры: <span className='price'>{siezes ? siezes : 0}</span>
                         </p>
                         <p className="description">
-                            {description.slice(0, 83) + '...'}
+                            {description.slice(0, 63) + '...'}
                         </p>
                         <p className="description qaptal">
                             Цена   <span className='price'>{price}</span> руб.

@@ -6,11 +6,15 @@ import Header from '../fabrics/header/Header'
 import Nav from '../fabrics/nav/Nav'
 import Burger from '../fabrics/header/Burger'
 import { BACK_URL } from '../../constants'
+import Test from '../product/Test'
+import Product from '../product/Index'
 
- 
+
 function Index() {
     const { id } = useParams()
     const [data, setData] = useState([])
+    const [open, setOpen] = useState(false);
+    const handleClose = () => setOpen(false);
     useEffect((e) => {
         axios.get(`${BACK_URL}/api/subcat/${id}`).then(res => {
             setData(res.data);
@@ -21,70 +25,28 @@ function Index() {
     }, [])
     const [current, setCurrent] = useState(1)
     const [expandedDay, setCollapsedDay] = useState();
-    function Hero() {
-        if (data.product != undefined) {
-            if ((data.products.find(product => product.id == current).children) != undefined) {
-                return (
-                    <>
-                        {
-                            data.products ? data.products.find(product => product.id == current).children?.map(el => {
-
-                                return (
-                                    <Card data={el} key={el.id}
-                                        day={el.id}
-                                        disabled={expandedDay !== el.id && expandedDay !== undefined}
-                                        onExpand={() => setCollapsedDay(el.id)}
-                                        onCollapse={() => setCollapsedDay()} />
-                                )
-                            }) : 'Empty as my heart '
-                        }
-                        {
-                            data.products ? data.products.find(product => product.id == current).children?.map(el => {
-
-                                return (
-                                    <Card data={el} key={el.id}
-                                        day={el.id}
-                                        disabled={expandedDay !== el.id && expandedDay !== undefined}
-                                        onExpand={() => setCollapsedDay(el.id)}
-                                        onCollapse={() => setCollapsedDay()} />
-                                )
-                            }) : 'Empty as my heart'
-                        }</>
-                )
-            } else {
-                return ("Empty as my heart")
-            }
-        } else {
-            return ("Preparing")
-        }
-
-
-    }
+    const [productData, setProductData] = useState()
     return (
         <div>
             <Header />
             <Burger />
-            <Nav current={current}>
+            <Nav current={current} data={data} setCurrent={setCurrent} />
+            <div className="hero" >
                 {
-                    data.products?.map(el => { return (<h4 key={el.id} className={current==el.id?'selected':'unselected'} onClick={e => { setCurrent(el.id)}}>{el.subsubcat_name}</h4>) })
-                }
-                
-                
-            </Nav>
-            <div className="hero">
-                {/* <Hero /> */}{
                     (data.products) ? data.products?.find(product => product.id == current)?.children?.map(el => {
                         console.log(44444444444444 + data.product)
                         return (
-                            <Card data={el} key={el.id}
-                                day={el.id}
-                                disabled={expandedDay !== el.id && expandedDay !== undefined}
-                                onExpand={() => setCollapsedDay(el.id)}
-                                onCollapse={() => setCollapsedDay()} />
+                            <div onClick={() => { setOpen(true); setProductData(el) }}>
+                                <Card data={el} key={el.id} />
+                            </div>
+
                         )
                     }) : 'preparing'
                 }
+                <Product handleClose={handleClose} setOpen={setOpen} open={open} data={productData}/>
+                {/* <Test handleClose={handleClose} setOpen={setOpen} open={open} data={0}/> */}
             </div>
+            
         </div>
     )
 }

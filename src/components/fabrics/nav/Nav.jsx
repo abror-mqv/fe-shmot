@@ -46,20 +46,15 @@ background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 65%);
       margin-left: -90px;
     }
 `
-function Nav({children, ...props}) {
-  console.log(props)
-  const StyledItems = styled`
-    .items{
-      h4{
-
-      }
-    }
-  `
+function Nav(props) {
+  const {data, setCurrent, current} = {...props}
   return (
     <StyledNav>
       <h3>Выберите раздел:</h3>
       <div className='items'>
-        {children}
+        {
+          data.products?.map(el => { return (<h4 key={el.id} className={current == el.id ? 'selected' : 'unselected'} onClick={e => { setCurrent(el.id) }}>{el.subsubcat_name}</h4>) })
+        }
       </div>
       <div className="line">
 
