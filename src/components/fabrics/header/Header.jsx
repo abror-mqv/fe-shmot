@@ -4,8 +4,8 @@ import styled from 'styled-components'
 
 const StyledHeader = styled.header`
     width: 100%;
-    height: 60px;
-    background-color: #764AF1;
+    height: 0px;
+    background-color: #774af10;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -34,13 +34,18 @@ const StyledHeader = styled.header`
 
         }
     }
+    div{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding-left: 98px;
+        text-align: center;
+    }
 
 `
 function Header() {
     return (
-        <StyledHeader>            
-            <div></div>
-            <img src="/Logo_1.0_NoBack.png" alt="" className='Logo' />
+        <StyledHeader>
+            {/* <div>Выберите под-подкатегорию</div> */}
+            {/* <img src="/Logo_1.0_NoBack.png" alt="" className='Logo' /> */}
         </StyledHeader>
     )
 }

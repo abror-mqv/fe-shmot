@@ -20,7 +20,7 @@ body {
 .hero {
   width: 100%;
   position: relative;
-  
+
   /* z-index: -1; */
 }
 
@@ -187,3 +187,22 @@ li {
 }
 
 
+.selected {
+  padding: 6px 18px !important;
+  font-size: 14px;
+  transition: 0.4s;
+  font-weight: 200;
+
+  background-color: #B8AE8D !important;
+  font-family: 'Oswald', sans-serif;
+}
+
+.unselected {
+  padding: 6px 10px !important;
+
+  background-color: #52492A !important;
+  transition: 0.4s;
+  font-family: 'Oswald', sans-serif;
+  font-size: 12px;
+  font-weight: 200;
+}
