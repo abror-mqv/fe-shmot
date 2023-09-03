@@ -26,21 +26,31 @@ const StyledCard = styled.div`
 
             padding: 20px;
             color: #000000;
-            /* background: #e0e0e0; */
+           display: flex;
+           flex-direction: column;
+           justify-content: flex-start;
 
             .title{
-                font-size: 20px;
+                font-size: 17px;
                 margin-bottom: 20px;
+                font-weight: 900;
+            }
+            .price{
+                font-size: 15px;
+                color: #000000;
                 
+            }
+            .sizes{
+                font-size: 10px;
+                margin-bottom: 20px;
             }
             .description{
                 font-size: 10px;
                 color: rgb(27, 27, 27);
                 margin-bottom: 20px;
             }
-            .price{
-                font-size: 16px;
-                color: #000000;
+            .qaptal{
+                align-self: flex-end;
             }
        }
     }    
@@ -70,14 +80,16 @@ function Card({ onCollapse, onExpand, disabled, data, day }) {
                         <p className="title">
                             {title}
                         </p>
+
+                        
+                        <p className="sizes">
+                            размеры: <span className='price'>{siezes ? siezes : 0}</span>
+                        </p>
                         <p className="description">
                             {description.slice(0, 83) + '...'}
                         </p>
-                        <p className="description">
+                        <p className="description qaptal">
                             Цена   <span className='price'>{price}</span> руб.
-                        </p>
-                        <p className="sizes">
-                            {siezes ? siezes : 0}
                         </p>
                     </div>
                 </div>
