@@ -265,7 +265,7 @@ li {
 .Liner{
   color: black;
   width: 50%;
-  background-color: rgb(244, 238, 212);
+  background-color: #b8ae8d8b;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -277,7 +277,7 @@ li {
 .Counter{
   color: black;
   width: calc(50% - 60px);
-  background-color: #f4eeee;
+  background-color: #fffdfd;
   height: 100%;
   display: flex;
   justify-content: space-around;
@@ -299,7 +299,8 @@ li {
 }
 
 .Colors{
-  width: 100%;
+  width: 80%;
+  margin-left: 10%;
   height: 20px;
   display: flex;
   justify-content: center;
@@ -307,10 +308,18 @@ li {
   color: #0000009c;
   text-align: center;
   margin-top: 8px;
+  font-family: 'Oswald', sans-serif;
+  align-items: center;
 }
 .ColorRound{
   width: 20px;
   height: 20px;
-  border-radius: 10px;
-
+  border-radius: 6px;
+  margin-right: 12px;
 }
+.HeaderLine{
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+.HeaderLine .thums{}

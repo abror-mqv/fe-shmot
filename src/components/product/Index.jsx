@@ -21,7 +21,6 @@ SwiperCore.use([Navigation, Pagination, Thumbs, Controller, EffectCube]);
 function Product(props) {
     const { open, setOpen, handleClose, data } = { ...props }
     const [name, setName] = useState(null)
-    const [value, setValue] = useState(0)
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const [controlledSwiper, setControlledSwiper] = useState(null);
     const [currentSlide, setCutterntSlide] = useState(1);
@@ -66,6 +65,7 @@ function Product(props) {
         })
 
         return (
+
             <Modal
                 open={open}
                 onClose={handleClose}
@@ -73,33 +73,15 @@ function Product(props) {
                 aria-describedby="modal-modal-description"
             >
                 <div className="StyledBoxModal">
-                    <Swiper
-                        navigation={true}
-                        modules={[Navigation]}
-                        slidesPerView={1}
-                        spaceBetween={0}
-                        className="Swiper__main"
-                        // pagination={{
-                        //     clickable: true,
-                        // }}
-                        // controller={{ control: controlledSwiper }}
-                        // thumbs={{
-                        //     swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
-                        // }}
-                        // onSlideChange={(swiper) => {
-                        //     console.log("slide change, ", swiper.activeIndex);
-                        //     setCutterntSlide(swiper.activeIndex);
-                        // }}
-                    >
-                        {arr.map((el) => {
-                            // console.log(el.name) 
+                    <Swiper className='Swiper__main' navigation={true} pagination={{ clickable: true }} controller={{ control: controlledSwiper }} thumbs={{
+                        swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
+                    }}>
+                        {arr.map(el => {
                             return (
-                                <>
-                                    <SwiperSlide>
-                                        <img src={BACK_URL + '/media/' + el.image} alt="" className='Swiper__image' />
-                                    </SwiperSlide>
-                                </>
-                            );
+                                <SwiperSlide>
+                                    <img src={BACK_URL + '/media/' + el.image} alt="" className='Swiper__image' />
+                                </SwiperSlide>
+                            )
                         })}
                     </Swiper>
                     <div className='AddToCart'>
@@ -126,15 +108,15 @@ function Product(props) {
                     </div>
                     <div className="Colors">
                         Цвета в наличии:
-                        {/* <Swiper
+                        <Swiper
                             id="thumbs"
-                            spaceBetween={1}
+                            // spaceBetween={1}
                             slidesPerView={5}
                             onSwiper={setThumbsSwiper}
                             className="HeaderLine"
                         >
                             {ColorRounds}
-                        </Swiper> */}
+                        </Swiper>
                     </div>
                     <h1 className='P_title'>{data.product_name} </h1>
                     <Button
@@ -155,3 +137,38 @@ function Product(props) {
 }
 
 export default Product
+
+
+
+
+//     <Swiper Swiper
+// navigation = { true}
+// modules = { [Navigation]}
+// slidesPerView = { 1}
+// spaceBetween = { 0}
+// className = "Swiper__main"
+//     // pagination={{
+//     //     clickable: true,
+//     // }}
+//     // controller={{ control: controlledSwiper }}
+//     // thumbs={{
+//     //     swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
+//     // }}
+//     // onSlideChange={(swiper) => {
+//     //     console.log("slide change, ", swiper.activeIndex);
+//     //     setCutterntSlide(swiper.activeIndex);
+//     // }}
+//     >
+// {
+//     arr.map((el) => {
+//         // console.log(el.name)
+//         return (
+//             <>
+//                 <SwiperSlide>
+//                     <img src={BACK_URL + '/media/' + el.image} alt="" className='Swiper__image' />
+//                 </SwiperSlide>
+//             </>
+//         );
+//     })
+// }
+// </Swiper >
