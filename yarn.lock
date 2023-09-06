@@ -1858,7 +1858,7 @@
     hey-listen "^1.0.8"
     tslib "^2.3.1"
 
-"@mui/base@5.0.0-beta.13":
+"@mui/base@^5.0.0-beta.13", "@mui/base@5.0.0-beta.13":
   version "5.0.0-beta.13"
   resolved "https://registry.npmjs.org/@mui/base/-/base-5.0.0-beta.13.tgz"
   integrity sha512-uC0l97pBspfDAp+iz2cJq8YZ8Sd9i73V77+WzUiOAckIVEyCm5dyVDZCCO2/phmzckVEeZCGcytybkjMQuhPQw==

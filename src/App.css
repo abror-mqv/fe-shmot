@@ -218,11 +218,12 @@ li {
   background-color: rgb(255, 255, 255);
   color: white;
   border: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
   text-align: start;
+  overflow-y: scroll;
+}
+
+.StyledBoxModal:focus-visible {
+  outline: none;
 }
 
 .BoxModal__button {
@@ -230,24 +231,86 @@ li {
   background: rgba(0, 0, 0, 0) !important;
   font-size: 2vw;
   border-radius: 0px !important;
+  display: none !important;
 }
 
-.Swiper__main{
+.Swiper__main {
   height: 400px;
   width: 90vw;
   color: black;
 }
 
-.Swiper__image{
+.Swiper__image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
 }
 
-.P_title{
+.P_title {
   color: black;
   font-family: 'Oswald', sans-serif;
   font-size: 28px;
   font-weight: 900;
+}
+
+.AddToCart{
+  width: 100%;
+  height: 60px;
+  background-color: #f4f1f1;
+  display: flex;
+  justify-content: center;
+}
+
+.Liner{
+  color: black;
+  width: 50%;
+  background-color: rgb(244, 238, 212);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+
+}
+.Counter{
+  color: black;
+  width: calc(50% - 60px);
+  background-color: #f4eeee;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+  
+}
+.AddButton{
+  color: black;
+  width: 60px;
+  height: 100%;
+  background-color: #ebf8f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+}
+
+.Colors{
+  width: 100%;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  color: #0000009c;
+  text-align: center;
+  margin-top: 8px;
+}
+.ColorRound{
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+
 }
