@@ -129,7 +129,7 @@ function Product(props) {
                             />
                         </div>
                         <div className="AddButton" onClick={() => {
-                            alert(name)
+                            GetDrop()
                         }}>
                             {/* <img src='/' alt="" className='addtocartimage' /> */}
                         </div>
