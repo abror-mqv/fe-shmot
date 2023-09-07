@@ -31,7 +31,7 @@ function Product(props) {
     useEffect((e) => {
         const tg = window.Telegram.WebApp
         if (tg.initDataUnsafe.user.id != 'undefined') {
-            axios.get(`${BACK_URL}/api/getid/${tg.initDataUnsafe.user.id}`).then((res)=>{
+            axios.get(`${BACK_URL}/api/getid/${tg.initDataUnsafe.user.id}`).then((res) => {
                 localStorage.setItem('id', res.data.id);
                 setId(res.data.id)
             })
@@ -85,7 +85,8 @@ function Product(props) {
                 'product': data.id,
                 'quantity': name
             }).then(res => {
-                alert(123)
+                alert("Товар добавлен в корзину!");
+
             }).catch(err => {
                 alert(996)
             })
@@ -131,7 +132,8 @@ function Product(props) {
                         <div className="AddButton" onClick={() => {
                             GetDrop()
                         }}>
-                            {/* <img src='/' alt="" className='addtocartimage' /> */}
+
+
                         </div>
                     </div>
                     <div className="Colors">
@@ -146,8 +148,8 @@ function Product(props) {
                             {ColorRounds}
                         </Swiper>
                     </div>
-                    <h1 className='P_title'>{data.product_name} howdy  {id}</h1>
-
+                    <h1 className='P_title'>{data.product_name}</h1>
+                    <p className='P_des'>{data.description}</p>
 
 
                     <Button
