@@ -146,24 +146,7 @@ function Product(props) {
                     <h1 className='P_title'>{data.product_name} howdy  </h1>
 
 
-                    <Modal
-                        open={open1}
-                        onClose={handleClose}
-                        aria-labelledby="modal-modal-title"
-                        aria-describedby="modal-modal-description"
-                    >
-                        Added to cart
-                        <Button
-                            variant="contained"
-                            className="BoxModal__button"
-                            color="success"
-                            onClick={() => {
-                                setOpen(false);
-                            }}
-                        >
-
-                        </Button>
-                    </Modal>
+                    
                     <Button
                         variant="contained"
                         className="BoxModal__button"
