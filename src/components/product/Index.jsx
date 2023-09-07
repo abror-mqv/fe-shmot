@@ -79,17 +79,17 @@ function Product(props) {
                 </SwiperSlide>
             )
         })
-        // function GetDrop() {
-        //     axios.post(`${BACK_URL}/api/add-cart-item/`, {
-        //         'user': 1,
-        //         'product': data.id,
-        //         'quantity': name
-        //     }).then(res => {
-        //         alert(123)
-        //     }).catch(err => {
-        //         alert(996)
-        //     })
-        // }
+        function GetDrop() {
+            axios.post(`${BACK_URL}/api/add-cart-item/`, {
+                'user': id,
+                'product': data.id,
+                'quantity': name
+            }).then(res => {
+                alert(123)
+            }).catch(err => {
+                alert(996)
+            })
+        }
         return (
 
             <Modal
