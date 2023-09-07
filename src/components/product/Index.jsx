@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from '@emotion/styled'
 import Modal from "@mui/material/Modal";
 import { Button } from '@mui/material'
@@ -26,7 +26,15 @@ function Product(props) {
     const [controlledSwiper, setControlledSwiper] = useState(null);
     const [currentSlide, setCutterntSlide] = useState(1);
     const [open1, setOpen1] = useState(false);
-    const tg = window.Telegram.WebApp
+
+
+    useEffect((e) => {
+        const tg = window.Telegram.WebApp
+        if (tg.initDataUnsafe.user.id != 'undefined') {
+            axios.get(`${BACK_URL}/api/getid/${tg.initDataUnsafe.user.id}`)
+        }
+
+    }, [window.Telegram.WebApp])
     // console.log(777777777777)
     // console.log(tg.initDataUnsafe.user.id)
     if (data != undefined) {
@@ -69,7 +77,7 @@ function Product(props) {
             )
         })
         function GetDrop() {
-            axios.post('http://5.8.11.254:8080/api/add-cart-item/', {
+            axios.post(`${BACK_URL}/api/add-cart-item/`, {
                 'user': 1,
                 'product': data.id,
                 'quantity': name
@@ -118,7 +126,7 @@ function Product(props) {
                             />
                         </div>
                         <div className="AddButton" onClick={() => {
-                            alert(name)
+                            GetDrop()
                         }}>
                             {/* <img src='/' alt="" className='addtocartimage' /> */}
                         </div>
