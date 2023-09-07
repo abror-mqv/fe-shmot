@@ -26,15 +26,18 @@ function Product(props) {
     const [controlledSwiper, setControlledSwiper] = useState(null);
     const [currentSlide, setCutterntSlide] = useState(1);
     const [open1, setOpen1] = useState(false);
+    const [id, setId] = useState(null)
 
+    useEffect((e) => {
+        const tg = window.Telegram.WebApp
+        if (tg.initDataUnsafe.user.id != 'undefined') {
+            axios.get(`${BACK_URL}/api/getid/${tg.initDataUnsafe.user.id}`).then((res)=>{
+                localStorage.setItem('id', res.data.id);
+                setId(res.data.id)
+            })
+        }
 
-    // useEffect((e) => {
-    //     const tg = window.Telegram.WebApp
-    //     if (tg.initDataUnsafe.user.id != 'undefined') {
-    //         axios.get(`${BACK_URL}/api/getid/${tg.initDataUnsafe.user.id}`)
-    //     }
-
-    // }, [window.Telegram.WebApp])
+    }, [window.Telegram.WebApp])
     // console.log(777777777777)
     // console.log(tg.initDataUnsafe.user.id)
     if (data != undefined) {
@@ -143,10 +146,10 @@ function Product(props) {
                             {ColorRounds}
                         </Swiper>
                     </div>
-                    <h1 className='P_title'>{data.product_name} howdy  </h1>
+                    <h1 className='P_title'>{data.product_name} howdy  {id}</h1>
 
 
-                    
+
                     <Button
                         variant="contained"
                         className="BoxModal__button"
