@@ -264,7 +264,7 @@ li {
 
 .Liner{
   color: black;
-  width: 50%;
+  width: 55%;
   background-color: #b8ae8d8b;
   height: 100%;
   display: flex;
@@ -276,7 +276,7 @@ li {
 }
 .Counter{
   color: black;
-  width: calc(50% - 60px);
+  width: calc(55% - 60px);
   background-color: #fffdfd;
   height: 100%;
   display: flex;
@@ -284,8 +284,15 @@ li {
   align-items: center;
   text-align: center;
   font-family: 'Oswald', sans-serif;
-  
 }
+.Counter label{
+  font-size: 12px;
+  margin-top: 4px;
+}
+.Counter input{
+  text-align: center;
+}
+
 .AddButton{
   color: black;
   width: 60px;
@@ -296,6 +303,13 @@ li {
   align-items: center;
   text-align: center;
   font-family: 'Oswald', sans-serif;
+  background-image: url(./components/product/pack.png);
+  object-fit: contain;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-size: 70%;
+  object-position: center;
 }
 
 .Colors{
@@ -323,3 +337,11 @@ li {
   gap: 12px;
 }
 .HeaderLine .thums{}
+
+
+.MuiOutlinedInput-root{
+  border-radius: 0 !important;
+  border: 0 !important;
+  margin-top: -5px;
+  height: 65px;
+}

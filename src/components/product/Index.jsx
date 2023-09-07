@@ -24,6 +24,9 @@ function Product(props) {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const [controlledSwiper, setControlledSwiper] = useState(null);
     const [currentSlide, setCutterntSlide] = useState(1);
+    const tg = window.Telegram.WebApp
+    console.log(777777777777)
+    console.log(tg.initDataUnsafe.user.id)
     if (data != undefined) {
         console.log(data)
         const arr = [
@@ -87,11 +90,13 @@ function Product(props) {
                     <div className='AddToCart'>
                         <div className="Liner">
                             {data.siezes}
+                            <br />
+                            5 размеров в линейке
                         </div>
                         <div className="Counter">
                             <TextField
                                 variant="outlined"
-                                id="outlined-controlled"
+                                // id="outlined-controlled"
                                 label="Кол-во линеек"
                                 value={name}
                                 type='number'
@@ -103,7 +108,7 @@ function Product(props) {
                         <div className="AddButton" onClick={() => {
                             alert(name)
                         }}>
-
+                            {/* <img src='/' alt="" className='addtocartimage' /> */}
                         </div>
                     </div>
                     <div className="Colors">
@@ -118,7 +123,7 @@ function Product(props) {
                             {ColorRounds}
                         </Swiper>
                     </div>
-                    <h1 className='P_title'>{data.product_name} </h1>
+                    <h1 className='P_title'>{data.product_name} howdy {tg.initDataUnsafe.user.id} </h1>
                     <Button
                         variant="contained"
                         className="BoxModal__button"
@@ -127,6 +132,7 @@ function Product(props) {
                             setOpen(false);
                         }}
                     >
+
                     </Button>
                 </div>
             </Modal>
