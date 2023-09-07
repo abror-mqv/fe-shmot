@@ -28,13 +28,13 @@ function Product(props) {
     const [open1, setOpen1] = useState(false);
 
 
-    useEffect((e) => {
-        const tg = window.Telegram.WebApp
-        if (tg.initDataUnsafe.user.id != 'undefined') {
-            axios.get(`${BACK_URL}/api/getid/${tg.initDataUnsafe.user.id}`)
-        }
+    // useEffect((e) => {
+    //     const tg = window.Telegram.WebApp
+    //     if (tg.initDataUnsafe.user.id != 'undefined') {
+    //         axios.get(`${BACK_URL}/api/getid/${tg.initDataUnsafe.user.id}`)
+    //     }
 
-    }, [window.Telegram.WebApp])
+    // }, [window.Telegram.WebApp])
     // console.log(777777777777)
     // console.log(tg.initDataUnsafe.user.id)
     if (data != undefined) {
@@ -76,17 +76,17 @@ function Product(props) {
                 </SwiperSlide>
             )
         })
-        function GetDrop() {
-            axios.post(`${BACK_URL}/api/add-cart-item/`, {
-                'user': 1,
-                'product': data.id,
-                'quantity': name
-            }).then(res => {
-                alert(123)
-            }).catch(err => {
-                alert(996)
-            })
-        }
+        // function GetDrop() {
+        //     axios.post(`${BACK_URL}/api/add-cart-item/`, {
+        //         'user': 1,
+        //         'product': data.id,
+        //         'quantity': name
+        //     }).then(res => {
+        //         alert(123)
+        //     }).catch(err => {
+        //         alert(996)
+        //     })
+        // }
         return (
 
             <Modal
@@ -126,7 +126,7 @@ function Product(props) {
                             />
                         </div>
                         <div className="AddButton" onClick={() => {
-                            GetDrop()
+                            alert(name)
                         }}>
                             {/* <img src='/' alt="" className='addtocartimage' /> */}
                         </div>
