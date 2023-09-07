@@ -17,6 +17,7 @@ import { Navigation } from "swiper";
 import { BACK_URL } from '../../constants';
 import TextField from "@mui/material/TextField";
 import { useState } from 'react';
+import axios from 'axios';
 SwiperCore.use([Navigation, Pagination, Thumbs, Controller, EffectCube]);
 function Product(props) {
     const { open, setOpen, handleClose, data } = { ...props }
@@ -24,9 +25,10 @@ function Product(props) {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const [controlledSwiper, setControlledSwiper] = useState(null);
     const [currentSlide, setCutterntSlide] = useState(1);
+    const [open1, setOpen1] = useState(false);
     const tg = window.Telegram.WebApp
-    console.log(777777777777)
-    console.log(tg.initDataUnsafe.user.id)
+    // console.log(777777777777)
+    // console.log(tg.initDataUnsafe.user.id)
     if (data != undefined) {
         console.log(data)
         const arr = [
@@ -66,7 +68,17 @@ function Product(props) {
                 </SwiperSlide>
             )
         })
-
+        function GetDrop() {
+            axios.post('http://5.8.11.254:8080/api/add-cart-item/', {
+                'user': 1,
+                'product': data.id,
+                'quantity': name
+            }).then(res => {
+                alert(123)
+            }).catch(err => {
+                alert(996)
+            })
+        }
         return (
 
             <Modal
@@ -123,7 +135,27 @@ function Product(props) {
                             {ColorRounds}
                         </Swiper>
                     </div>
-                    <h1 className='P_title'>{data.product_name} howdy {tg.initDataUnsafe.user.id} </h1>
+                    <h1 className='P_title'>{data.product_name} howdy  </h1>
+
+
+                    <Modal
+                        open={open1}
+                        onClose={handleClose}
+                        aria-labelledby="modal-modal-title"
+                        aria-describedby="modal-modal-description"
+                    >
+                        Added to cart
+                        <Button
+                            variant="contained"
+                            className="BoxModal__button"
+                            color="success"
+                            onClick={() => {
+                                setOpen(false);
+                            }}
+                        >
+
+                        </Button>
+                    </Modal>
                     <Button
                         variant="contained"
                         className="BoxModal__button"
